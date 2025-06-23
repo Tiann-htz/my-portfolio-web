@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: #f9fafb;
+  --foreground: #111827;
+  --primary: #60a5fa;
+  --primary-foreground: #ffffff;
+  --secondary: #6b7280;
+  --accent: #3b82f6;
+  --muted: #f3f4f6;
+  --border: #e5e7eb;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+[data-theme="dark"] {
+  --background: #111827;
+  --foreground: #f9fafb;
+  --primary: #60a5fa;
+  --primary-foreground: #111827;
+  --secondary: #6b7280;
+  --accent: #3b82f6;
+  --muted: #374151;
+  --border: #374151;
+}
+
+[data-theme="light"] {
+  --background: #f9fafb;
+  --foreground: #111827;
+  --primary: #60a5fa;
+  --primary-foreground: #ffffff;
+  --secondary: #6b7280;
+  --accent: #3b82f6;
+  --muted: #f3f4f6;
+  --border: #e5e7eb;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Orbitron font only for TIAN brand */
+.brand-font {
+  font-family: 'Orbitron', monospace;
+}
+
+/* Inter font for better readability */
+.content-font {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Subtle noise texture background */
+.noise-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.noise-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(96, 165, 250, 0.05) 1px, transparent 0);
+  background-size: 20px 20px;
+  opacity: 0.6;
+  pointer-events: none;
+  animation: noise 20s linear infinite;
+}
+
+[data-theme="dark"] .noise-bg::before {
+  background-image: 
+    radial-gradient(circle at 1px 1px, rgba(96, 165, 250, 0.08) 1px, transparent 0);
+  opacity: 0.4;
+}
+
+@keyframes noise {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -5%); }
+  20% { transform: translate(-10%, 5%); }
+  30% { transform: translate(5%, -10%); }
+  40% { transform: translate(-5%, 15%); }
+  50% { transform: translate(-10%, 5%); }
+  60% { transform: translate(15%, 0%); }
+  70% { transform: translate(0%, 15%); }
+  80% { transform: translate(-15%, 10%); }
+  90% { transform: translate(10%, 5%); }
+}
+
+/* Subtle cyber glow effects */
+.cyber-glow {
+  box-shadow: 0 4px 20px rgba(96, 165, 250, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.cyber-glow:hover {
+  box-shadow: 0 8px 30px rgba(96, 165, 250, 0.2);
+}
+
+[data-theme="dark"] .cyber-glow {
+  box-shadow: 0 4px 20px rgba(96, 165, 250, 0.15);
+}
+
+[data-theme="dark"] .cyber-glow:hover {
+  box-shadow: 0 8px 30px rgba(96, 165, 250, 0.25);
+}
+
+/* Animated gradient text - Blue accent only */
+.gradient-text {
+  background: linear-gradient(45deg, #60a5fa, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Custom button styles - Professional look */
+.cyber-button {
+  position: relative;
+  background: linear-gradient(45deg, rgba(96, 165, 250, 0.1), rgba(59, 130, 246, 0.1));
+  border: 2px solid #60a5fa;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+.cyber-button:hover {
+  background: linear-gradient(45deg, rgba(96, 165, 250, 0.2), rgba(59, 130, 246, 0.2));
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(96, 165, 250, 0.3);
+  color: #60a5fa;
+}
+
+[data-theme="dark"] .cyber-button {
+  background: linear-gradient(45deg, rgba(96, 165, 250, 0.1), rgba(59, 130, 246, 0.1));
+  border-color: #60a5fa;
+  color: #60a5fa;
+}
+
+[data-theme="dark"] .cyber-button:hover {
+  background: linear-gradient(45deg, rgba(96, 165, 250, 0.2), rgba(59, 130, 246, 0.2));
+  box-shadow: 0 10px 25px rgba(96, 165, 250, 0.3);
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Pulse animation - Subtle */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 15px rgba(96, 165, 250, 0.2); }
+  50% { box-shadow: 0 0 25px rgba(96, 165, 250, 0.4); }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Dark theme optimizations */
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+}
+
+/* Improved text contrast */
+[data-theme="dark"] .text-gray-600 {
+  color: #9ca3af !important;
+}
+
+[data-theme="dark"] .text-gray-700 {
+  color: #d1d5db !important;
+}
+
+[data-theme="dark"] .text-gray-800 {
+  color: #f3f4f6 !important;
+}
+
+[data-theme="light"] .text-gray-400 {
+  color: #6b7280 !important;
+}
+
+/* Professional card shadows */
+[data-theme="dark"] .shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+}
