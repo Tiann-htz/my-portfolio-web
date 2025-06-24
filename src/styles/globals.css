@@ -1,62 +1,124 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #f9fafb;
-  --foreground: #111827;
-  --primary: #60a5fa;
-  --primary-foreground: #ffffff;
-  --secondary: #6b7280;
-  --accent: #3b82f6;
-  --muted: #f3f4f6;
-  --border: #e5e7eb;
+  /* Dark theme - Sophisticated charcoal with warm undertones */
+  --background-dark: #1a1a1a;
+  --surface-dark: #242424;
+  --surface-elevated-dark: #2d2d2d;
+  --foreground-dark: #e8e8e8;
+  --foreground-secondary-dark: #b8b8b8;
+  --foreground-muted-dark: #888888;
+  
+  /* Light theme - Warm off-white */
+  --background-light: #fafaf9;
+  --surface-light: #ffffff;
+  --surface-elevated-light: #f5f5f4;
+  --foreground-light: #1c1c1c;
+  --foreground-secondary-light: #525252;
+  --foreground-muted-light: #737373;
+  
+
+
+
+
+  /* Blue accents - More sophisticated blues */
+  --primary: #4a90e2;
+  --primary-hover: #357abd;
+  --primary-light: #e3f2fd;
+  --primary-dark: #1565c0;
+  --secondary:#ffffff15;
+  
+  /* Gold accents for special highlights */
+  --gold: #d4af37;
+  --gold-light: #f4e9a1;
+  --gold-muted: #b8941f;
+  
+  /* Border colors */
+  --border-dark: #404040;
+  --border-light: #e5e5e5;
+  
+  /* Shadow colors */
+  --shadow-dark: rgba(0, 0, 0, 0.3);
+  --shadow-light: rgba(0, 0, 0, 0.1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
+
+
+/* Theme application */
 [data-theme="dark"] {
-  --background: #111827;
-  --foreground: #f9fafb;
-  --primary: #60a5fa;
-  --primary-foreground: #111827;
-  --secondary: #6b7280;
-  --accent: #3b82f6;
-  --muted: #374151;
-  --border: #374151;
+  --background: var(--background-dark);
+  --surface: var(--surface-dark);
+  --surface-elevated: var(--surface-elevated-dark);
+  --foreground: var(--foreground-dark);
+  --foreground-secondary: var(--foreground-secondary-dark);
+  --foreground-muted: var(--foreground-muted-dark);
+  --border: var(--border-dark);
+  --shadow: var(--shadow-dark);
 }
 
 [data-theme="light"] {
-  --background: #f9fafb;
-  --foreground: #111827;
-  --primary: #60a5fa;
-  --primary-foreground: #ffffff;
-  --secondary: #6b7280;
-  --accent: #3b82f6;
-  --muted: #f3f4f6;
-  --border: #e5e7eb;
+  --background: var(--background-light);
+  --surface: var(--surface-light);
+  --surface-elevated: var(--surface-elevated-light);
+  --foreground: var(--foreground-light);
+  --foreground-secondary: var(--foreground-secondary-light);
+  --foreground-muted: var(--foreground-muted-light);
+  --border: var(--border-light);
+  --shadow: var(--shadow-light);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  line-height: 1.7;
+  font-weight: 400;
 }
 
-/* Orbitron font only for TIAN brand */
+
+
+
+
+
+
+
+
+/* Typography classes */
 .brand-font {
   font-family: 'Orbitron', monospace;
+  font-weight: 700;
+  letter-spacing: 0.05em;
 }
 
-/* Inter font for better readability */
-.content-font {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+.heading-font {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
 }
+
+.content-font {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+.body-font {
+  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+
+
+
+
+
+
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
@@ -64,135 +126,232 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--muted);
+  background: var(--surface);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--primary);
+  background: var(--secondary);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent);
+  background: var(--primary-hover);
 }
 
-/* Subtle noise texture background */
-.noise-bg {
+
+
+
+
+
+
+
+
+/* Elegant background with subtle lighting - extends to cover nav area */
+.elegant-bg {
   position: relative;
-  overflow: hidden;
+  background: var(--background);
+  padding-top: 100px; /* Add padding to maintain content position */
 }
 
-.noise-bg::before {
+/* Sophisticated lighting effects - moved to right side */
+.elegant-bg::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: 
-    radial-gradient(circle at 1px 1px, rgba(96, 165, 250, 0.05) 1px, transparent 0);
-  background-size: 20px 20px;
-  opacity: 0.6;
+  background: 
+    radial-gradient(circle at 75% 25%, rgba(74, 144, 226, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 85% 60%, rgba(212, 175, 55, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(74, 144, 226, 0.04) 0%, transparent 60%);
   pointer-events: none;
-  animation: noise 20s linear infinite;
 }
 
-[data-theme="dark"] .noise-bg::before {
-  background-image: 
-    radial-gradient(circle at 1px 1px, rgba(96, 165, 250, 0.08) 1px, transparent 0);
-  opacity: 0.4;
+[data-theme="light"] .elegant-bg::before {
+  background: 
+    radial-gradient(circle at 75% 25%, rgba(74, 144, 226, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 85% 60%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(74, 144, 226, 0.02) 0%, transparent 60%);
 }
 
-@keyframes noise {
-  0%, 100% { transform: translate(0, 0); }
-  10% { transform: translate(-5%, -5%); }
-  20% { transform: translate(-10%, 5%); }
-  30% { transform: translate(5%, -10%); }
-  40% { transform: translate(-5%, 15%); }
-  50% { transform: translate(-10%, 5%); }
-  60% { transform: translate(15%, 0%); }
-  70% { transform: translate(0%, 15%); }
-  80% { transform: translate(-15%, 10%); }
-  90% { transform: translate(10%, 5%); }
+
+
+
+
+
+
+/* Refined card styles */
+.elegant-card {
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px var(--shadow);
 }
 
-/* Subtle cyber glow effects */
-.cyber-glow {
-  box-shadow: 0 4px 20px rgba(96, 165, 250, 0.1);
-  transition: box-shadow 0.3s ease;
+.elegant-card:hover {
+  box-shadow: 0 8px 30px var(--shadow);
 }
 
-.cyber-glow:hover {
-  box-shadow: 0 8px 30px rgba(96, 165, 250, 0.2);
+/* Button styles - Removed transitions */
+.primary-button {
+  background: var(--primary);
+  color: white;
+  border: 2px solid var(--primary);
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
 }
 
-[data-theme="dark"] .cyber-glow {
-  box-shadow: 0 4px 20px rgba(96, 165, 250, 0.15);
+.primary-button:hover {
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
 }
 
-[data-theme="dark"] .cyber-glow:hover {
-  box-shadow: 0 8px 30px rgba(96, 165, 250, 0.25);
+.secondary-button {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
 }
 
-/* Animated gradient text - Blue accent only */
+.secondary-button:hover {
+  background: var(--primary);
+  color: white;
+}
+
+
+
+
+/* Gradient text - Blue focus */
 .gradient-text {
-  background: linear-gradient(45deg, #60a5fa, #3b82f6);
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
 }
 
-/* Custom button styles - Professional look */
-.cyber-button {
-  position: relative;
-  background: linear-gradient(45deg, rgba(96, 165, 250, 0.1), rgba(59, 130, 246, 0.1));
-  border: 2px solid #60a5fa;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-  color: #60a5fa;
-  font-weight: 600;
+
+
+/* Gold accent for special elements */
+.gold-accent {
+  color: var(--gold);
 }
 
-.cyber-button:hover {
-  background: linear-gradient(45deg, rgba(96, 165, 250, 0.2), rgba(59, 130, 246, 0.2));
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(96, 165, 250, 0.3);
-  color: #60a5fa;
+.gold-gradient {
+  background: linear-gradient(135deg, var(--gold), var(--gold-muted));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 
-[data-theme="dark"] .cyber-button {
-  background: linear-gradient(45deg, rgba(96, 165, 250, 0.1), rgba(59, 130, 246, 0.1));
-  border-color: #60a5fa;
-  color: #60a5fa;
+
+
+
+
+/* Navigation styles - clean and modern */
+.nav-link {
+  color: var(--foreground-secondary);
+  font-weight: 500;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  font-size: 0.95rem;
 }
 
-[data-theme="dark"] .cyber-button:hover {
-  background: linear-gradient(45deg, rgba(96, 165, 250, 0.2), rgba(59, 130, 246, 0.2));
-  box-shadow: 0 10px 25px rgba(96, 165, 250, 0.3);
+.nav-link:hover {
+  color: var(--primary);
 }
 
-/* Floating animation */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+
+
+
+/* Social link styles */
+.social-link {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  color: var(--foreground-secondary);
 }
 
-.float {
-  animation: float 3s ease-in-out infinite;
+.social-link:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
 }
 
-/* Pulse animation - Subtle */
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 15px rgba(96, 165, 250, 0.2); }
-  50% { box-shadow: 0 0 25px rgba(96, 165, 250, 0.4); }
+
+
+
+
+/* Theme toggle button */
+.theme-toggle {
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  color: var(--foreground-secondary);
+  cursor: pointer;
 }
 
-.pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
+.theme-toggle:hover {
+  background: var(--surface-elevated);
+  color: var(--primary);
 }
 
-/* Dark theme optimizations */
+
+
+
+
+/* Mobile menu styles */
+.mobile-menu {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+}
+
+/* Text color utilities */
+.text-primary { color: var(--primary); }
+.text-foreground { color: var(--foreground); }
+.text-foreground-secondary { color: var(--foreground-secondary); }
+.text-foreground-muted { color: var(--foreground-muted); }
+.text-gold { color: var(--gold); }
+
+/* Background utilities */
+.bg-surface { background: var(--surface); }
+.bg-surface-elevated { background: var(--surface-elevated); }
+.bg-background { background: var(--background); }
+
+/* Remove all animations and transitions */
+* {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Override Tailwind's transition classes */
+.transition-all,
+.transition-colors,
+.transition-transform,
+.transition-opacity,
+.duration-100,
+.duration-200,
+.duration-300,
+.duration-500,
+.ease-in,
+.ease-out,
+.ease-in-out {
+  transition: none !important;
+}
+
+/* Dark theme specific adjustments */
 [data-theme="dark"] {
   color-scheme: dark;
 }
@@ -201,30 +360,38 @@ body {
   color-scheme: light;
 }
 
-/* Improved text contrast */
+/* Improved text contrast for accessibility */
 [data-theme="dark"] .text-gray-600 {
-  color: #9ca3af !important;
+  color: var(--foreground-muted) !important;
 }
 
 [data-theme="dark"] .text-gray-700 {
-  color: #d1d5db !important;
+  color: var(--foreground-secondary) !important;
 }
 
 [data-theme="dark"] .text-gray-800 {
-  color: #f3f4f6 !important;
+  color: var(--foreground) !important;
 }
 
 [data-theme="light"] .text-gray-400 {
-  color: #6b7280 !important;
+  color: var(--foreground-muted) !important;
 }
 
-/* Professional card shadows */
+[data-theme="light"] .text-gray-600 {
+  color: var(--foreground-secondary) !important;
+}
+
+
+
+
+
+/* Professional shadows */
 [data-theme="dark"] .shadow-lg {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
 }
 
 [data-theme="dark"] .shadow-xl {
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
 }
 
 [data-theme="light"] .shadow-lg {
@@ -233,4 +400,75 @@ body {
 
 [data-theme="light"] .shadow-xl {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+/* Inspirational Quote Styling */
+.inspirational-quote {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: serif;
+  font-style: italic;
+  line-height: 1.4;
+  transition: all 0.3s ease;
+}
+
+/* Dark theme styling */
+[data-theme="dark"] .inspirational-quote {
+  background: linear-gradient(135deg, var(--gold), var(--primary), var(--gold));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+/* Light theme styling */
+[data-theme="light"] .inspirational-quote {
+  background: linear-gradient(135deg, #b8860b, #2563eb, #b8860b);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradient-shift-light 3s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes gradient-shift-light {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Responsive design for the quote */
+@media (min-width: 768px) {
+  .inspirational-quote {
+    font-size: 1.875rem;
+  }
+}
+
+/* Fallback for browsers that don't support background-clip */
+@supports not (background-clip: text) {
+  [data-theme="dark"] .inspirational-quote {
+    background: none;
+    color: var(--gold);
+  }
+  
+  [data-theme="light"] .inspirational-quote {
+    background: none;
+    color: #b8860b;
+  }
 }
