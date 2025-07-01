@@ -5,7 +5,7 @@ const HomePage = () => {
   const techStack = [
     { name: 'HTML', image: '/Tech-Stack/HTML5.png' },
     { name: 'CSS', image: '/Tech-Stack/CSS3.png' },
-    { name: 'JavaScript', image: '/Tech-Stack/Javascript.png' },
+    { name: 'JavaScript', image: '/Tech-Stack/JavaScript.png' },
     { name: 'Typescript', image: '/Tech-Stack/TypeScript.png' },
     { name: 'React', image: '/Tech-Stack/React.png' },
     { name: 'Tailwind', image: '/Tech-Stack/Tailwind CSS.png' },
@@ -56,13 +56,13 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
             <div className="mb-8">
-              <h1 className="text-xl md:text-6xl font-bold mb-4">
+              <h1 className="text-xl md:text-4xl font-bold mb-4">
                 <span className="text-foreground brand-font">ChrisTian Paete</span>
               </h1>
               <div className="text-xl md:text-2xl font-medium heading-font mb-2">
                 <span className="text-foreground-secondary">I am a</span>
               </div>
-              <div className="text-xl md:text-2xl gradient-text font-medium heading-font">
+              <div className="text-3xl md:text-5xl gradient-text font-bold heading-font">
                 <span>Full Stack Developer</span>
                 <span className="mx-4 text-gold">•</span>
                 <span>UI/UX Designer</span>
@@ -87,7 +87,7 @@ const HomePage = () => {
             {/* Social Links */}
             <div className="flex justify-center space-x-6 mb-16">
               {[
-                { icon: Github, href: '#', label: 'GitHub' },
+                { icon: Github, href: 'https://github.com/Tiann-htz', label: 'GitHub' },
                 { icon: Linkedin, href: '#', label: 'LinkedIn' },
                 { icon: Mail, href: '#', label: 'Email' }
               ].map((social, index) => (
@@ -95,6 +95,8 @@ const HomePage = () => {
                   key={social.label}
                   href={social.href}
                   className="social-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <social.icon className="w-6 h-6" />
                 </a>
